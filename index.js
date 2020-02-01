@@ -209,8 +209,14 @@ function sortCarInventory(inventory) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
  */
-function getModelYears(/* code here */) {
+function getModelYears(inventory) {
 	/* code here */
+	let arr = [];
+	inventory.map((car) => {
+		arr.push(car.car_year);
+	});
+
+	return arr;
 }
 
 /**
@@ -225,8 +231,15 @@ function getModelYears(/* code here */) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
  */
-function getOlderCars(/* code here */) {
+function getOlderCars(inventory, max_year) {
 	/* code here */
+	let arr = [];
+	inventory.map((car) => {
+		if (car.car_year <= max_year) {
+			arr.push(car);
+		}
+	});
+	return arr;
 }
 
 /**
@@ -240,8 +253,18 @@ function getOlderCars(/* code here */) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
  */
-function getGermanCars(/* code here */) {
+function getGermanCars(inventory) {
 	/* code here */
+	let arr = [];
+	inventory.map((cars) => {
+		cars.car_make == 'Audi' ||
+		cars.car_make == 'Mercedes-Benz' ||
+		cars.car_make == 'Volkswagen' ||
+		cars.car_make == 'BMW'
+			? arr.push(cars)
+			: null;
+	});
+	return arr;
 }
 
 /**
@@ -262,9 +285,9 @@ function getGermanCars(/* code here */) {
  *   return num * 2
  * }
  */
-const sum = null; // code here!
-const addFive = null; // code here!
-const argTimesTwo = null; // code here!
+const sum = (a, b) => a + b; // code here!
+const addFive = (sum) => sum + 5; // code here!
+const argTimesTwo = (num) => num * 2; // code here!
 
 /**
  * ### Challenge `carMaker`
